@@ -1,0 +1,31 @@
+erDiagram
+    Company {
+        NUMBER id_company PK
+        STRING codigo_companyUNIQUE
+        STRING name_company
+        STRING description
+    }
+
+    Application {
+        NUMBER app_id PK
+        STRING app_codeUNIQUE
+        STRING app_name
+        STRING appp_description
+    }
+
+    Version {
+        NUMBER version_id PK
+        STRING version
+        STRING version_description
+    }
+
+    Version_Company {
+        NUMBER version_company_id PK
+        NUMBER company_id FK
+        NUMBER version_id FK
+        STRING version_company_description
+    }
+
+Company ||--o{ Version_Company : "has"
+Version_Company }o--|| Version : "belongs to"
+Version ||--|| Application : "has"
